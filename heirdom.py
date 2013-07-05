@@ -32,11 +32,6 @@ for line in range(25):
             del_x = random.randint(-2, 2)
             del_y = random.randint(-2, 2)
         animal.age += 0.5
-##        if animal.age >= 5:
-##            animal.delete()
-            
-##        if animal.age == 3:
-##            Animal().add(animal.name, random.choice('mf'), 0, animal.x, animal.y)
         
         animal.x += del_x
         animal.y += del_y

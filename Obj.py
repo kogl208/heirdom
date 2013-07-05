@@ -53,9 +53,9 @@ class Animal(object):
         CON.commit()
     
     @classmethod
-    def delete(self, id=False):
+    def delete(self, id=0, all=False):
         try:
-            if id == -1:
+            if all:
                 raise DeleteException()
             id = id if id else self.__id
             CUR.execute('delete from animals where id=?', (id,))
@@ -63,13 +63,15 @@ class Animal(object):
             CUR.execute('delete from animals')
         CON.commit()
     
+    @classmethod
     def count(self):
         CUR.execute('select * from animals')
         count = 0
-        for row in cur:
+        for row in CUR:
             count += 1
         return count
         
+    @classmethod
     def all(self, rtrn=False):
         CUR.execute('select * from animals')
         if rtrn:
@@ -82,36 +84,3 @@ class Animal(object):
                 print(self.create(*row))
             if self.count() == 0:
                 print('No objects "Animal"')
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        

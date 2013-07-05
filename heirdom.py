@@ -3,16 +3,15 @@ import random
 
 from Obj import Animal
 
-print("anim")
-Animal.delete(-1)
+Animal.delete(all=True)
 animals = []
 
-Animal.add('animal_1', 'm', 0, 50, 50)
-Animal('animal_1', 'f', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+print(Animal.count())
 
 f = (0, 0)
 for line in range(25):
-    animals = Animal().all(True)
+    animals = Animal.all(True)
     for animal in animals:
         if animal.sex == 'f': 
             f = (animal.x, animal.y)

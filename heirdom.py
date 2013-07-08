@@ -7,11 +7,19 @@ Animal.delete(all=True)
 animals = []
 
 a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
+a = Animal.add('animal_1', 'm', 0, 50, 50)
 print(Animal.count())
 
 f = (0, 0)
 for line in range(25):
-    animals = Animal.all(True)
+    animals = Animal.all()
     for animal in animals:
         if animal.sex == 'f': 
             f = (animal.x, animal.y)

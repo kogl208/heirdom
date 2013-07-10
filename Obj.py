@@ -77,7 +77,7 @@ class Animal(object):
         CUR.execute('select count(*) from animals')
         for row in CUR:
             return row
-        
+##        ????
     @classmethod
     def all(self, rtrn=False):
         CUR.execute('select * from animals')

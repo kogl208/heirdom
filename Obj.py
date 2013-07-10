@@ -25,20 +25,16 @@ def add_obj(self, name, sex, age, x, y):
     return self
 
 
-def add_for_init(*args):
-    add_obj(*args)
-
-
 class Animal(object):
-    __init__ = add_for_init
-    
+    __init__ = add_obj
+
     def __repr__(self):
         return '%s_%s[%s] (%s,%s)' % (self.name, self.sex, self.age, 
             self.x, self.y)
     
-    add = classmethod(add_obj)
-##    add = __init__
+    add = add_obj
     
+    @classmethod
     def create(self, id, name, sex, age, x, y):
         self.__id = id
         self.sex = sex
@@ -46,7 +42,7 @@ class Animal(object):
         self.age = age
         self.x = x
         self.y = y
-        return self
+        return copy(self)
         
     def save(self):
         CUR.execute('''
@@ -69,15 +65,17 @@ class Animal(object):
     
     @classmethod
     def count(self):
-##        CUR.execute('select * from animals')
-##        count = 0
-##        for row in CUR:
-##            count += 1
-##        return count
-        CUR.execute('select count(*) from animals')
+        CUR.execute('select * from animals')
+        count = 0
         for row in CUR:
+<<<<<<< master
             return row
 ##        ????
+=======
+            count += 1
+        return count
+        
+>>>>>>> ff8ccce edit code
     @classmethod
     def all(self, rtrn=False):
         CUR.execute('select * from animals')
